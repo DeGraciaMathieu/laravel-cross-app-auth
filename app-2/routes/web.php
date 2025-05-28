@@ -3,5 +3,6 @@
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
-    return view('welcome');
+    session()->put('app-2', 'app-2');
+    dd(session()->all());
 });
