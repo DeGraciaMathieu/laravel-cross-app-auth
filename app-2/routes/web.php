@@ -19,20 +19,20 @@ Route::get('redis', function () {
     );
 });
 
-Route::get('logout', function () {
-
-    Auth::logout();
-
-    dd(Auth::check(), Auth::user());
-});
-
-Route::get('authenticate', function () {
-
-    $user = User::first();
-
-    Auth::login($user);
-});
-
 Route::get('check', function () {
     dd(Auth::check(), Auth::user());
+});
+
+Route::get('/test-auth', function () {
+    return view('test-auth');
+});
+
+Route::post('/test-auth/login', function () {
+    Auth::loginUsingId(1); // Simule une connexion avec l'utilisateur ID 1
+    return redirect('/test-auth');
+});
+
+Route::post('/test-auth/logout', function () {
+    Auth::logout();
+    return redirect('/test-auth');
 });
