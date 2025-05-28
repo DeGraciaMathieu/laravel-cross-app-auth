@@ -26,7 +26,7 @@ Route::get('logout', function () {
 
     Auth::logout();
 
-    dd(Auth::check(), Auth::user());
+    
 });
 
 Route::get('authenticate', function () {
