@@ -23,10 +23,9 @@ Route::get('redis', function () {
 });
 
 Route::get('logout', function () {
-
     Auth::logout();
 
-    dd(Auth::check(), Auth::user());
+    echo 'Logged out';
 });
 
 Route::get('authenticate', function () {
@@ -34,6 +33,8 @@ Route::get('authenticate', function () {
     $user = User::first();
 
     Auth::login($user);
+
+    echo 'Authenticated';
 });
 
 Route::get('check', function () {
